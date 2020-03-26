@@ -1,0 +1,12 @@
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+.DS_Store
+
+#Java Directories
+classes
+out
+build
+bin
