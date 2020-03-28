@@ -1,4 +1,4 @@
-package example.templateCallbackPattern;
+package tobi.spring.templateCallbackPattern;
 
 /**
  * Created by kimchanjung on 2020-03-26 2:33 오후

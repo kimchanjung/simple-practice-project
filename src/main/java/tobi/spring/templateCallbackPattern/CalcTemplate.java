@@ -1,4 +1,4 @@
-package example.templateCallbackPattern;
+package tobi.spring.templateCallbackPattern;
 
 
 /**
