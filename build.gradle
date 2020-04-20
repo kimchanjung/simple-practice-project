@@ -2,9 +2,10 @@ plugins {
 	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id 'org.jetbrains.kotlin.jvm' version '1.3.72'
 }
 
-group = 'tobi'
+group = 'simple-practice'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -42,6 +43,7 @@ dependencies {
 	// 추가된 라이브러리들
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	testCompile "com.github.tomakehurst:wiremock-jre8:2.26.3"
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
 }
 
@@ -54,4 +56,14 @@ dependencyManagement {
 
 test {
 	useJUnitPlatform()
+}
+compileKotlin {
+	kotlinOptions {
+		jvmTarget = "1.8"
+	}
+}
+compileTestKotlin {
+	kotlinOptions {
+		jvmTarget = "1.8"
+	}
 }

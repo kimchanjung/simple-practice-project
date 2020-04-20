@@ -36,7 +36,7 @@ public class DeliveryClientTest {
     }
 
     @Test
-    public void 배달목록을_정상적으로_가져온다() {
+    public void 배달목록을_정상적으로_가져온() {
         //Given
         wireMockServer.stubFor(get(urlPathMatching("/deliveries"))
                 .willReturn(aResponse()
