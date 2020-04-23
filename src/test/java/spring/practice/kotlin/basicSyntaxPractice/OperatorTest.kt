@@ -1,10 +1,7 @@
-package spring.practice.kotlin
+package spring.practice.kotlin.basicSyntaxPractice
 
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
-import javax.persistence.SqlResultSetMapping
 
 /**
  * Created by kimchanjung on 2020-04-22 3:21 오후

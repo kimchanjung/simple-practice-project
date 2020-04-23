@@ -1,4 +1,4 @@
-package spring.practice.kotlin.basicSyntaxPractice.createClass
+package spring.practice.kotlin.basicSyntaxPractice
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
