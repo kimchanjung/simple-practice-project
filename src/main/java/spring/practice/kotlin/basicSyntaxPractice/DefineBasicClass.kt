@@ -73,10 +73,12 @@ class OverLoadingConstructor(name: String) {
     var age: Int = 0
 
     init {
+        println("OverLoadingConstructor - init")
         this.name = name
     }
 
     constructor(name: String, address: String, age: Int) : this(name) {
+        println("OverLoadingConstructor - constructor")
         this.name = name
         this.address = address
         this.age = age
@@ -93,12 +95,14 @@ class OverLoadingConstructorWithoutInit {
 
 
     constructor(name: String, address: String, age: Int) {
+        println("OverLoadingConstructorWithoutInit - constructor 1")
         this.name = name
         this.address = address
         this.age = age
     }
 
     constructor(name: String) {
+        println("OverLoadingConstructorWithoutInit - constructor 2")
         this.name = name
     }
 

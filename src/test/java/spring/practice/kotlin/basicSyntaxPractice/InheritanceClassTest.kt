@@ -12,7 +12,7 @@ internal class InheritanceClassTest {
     fun 상속이_정상적으로_이루어진다() {
         // Given
         val parent = Parent("김찬정", 10)
-        val child = Child("김찬정", 20)
+        val child = Child("김찬정", 20, "부")
 
         // Then
         assertEquals(10, parent.age)

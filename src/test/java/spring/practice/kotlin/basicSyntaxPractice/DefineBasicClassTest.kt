@@ -32,7 +32,7 @@ internal class DefineBasicClassTest {
     fun 생성자_오버로딩이_정상적이() {
         // When
         val overLoadingConstructor = OverLoadingConstructor("김찬정")
-        val overLoadingSecondConstructor = OverLoadingConstructor("", "서울", 10)
+        val overLoadingSecondConstructor = OverLoadingConstructor("촨", "서울", 10)
         val overLoadingConstructorWithoutInit = OverLoadingConstructorWithoutInit("김찬정")
 
         // Then
