@@ -20,8 +20,8 @@ fun selectStatus(status: EnumClass) = when (status) {
     else -> "NOT"
 }
 
-fun selectStatus(status1: EnumClass, status2: EnumClass) = when(setOf(status1, status2)) {
-    setOf(EnumClass.COMPLETE_DELIVERY)  -> "COMPLETE_DELIVERY"
+fun selectStatus(status1: EnumClass, status2: EnumClass) = when (setOf(status1, status2)) {
+    setOf(EnumClass.COMPLETE_DELIVERY) -> "COMPLETE_DELIVERY"
     setOf(EnumClass.CONSIGN, EnumClass.COMPLETE_PICKUP) -> "CONSIGN or COMPLETE_PICKUP"
     else -> "NOT"
 }

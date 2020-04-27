@@ -32,8 +32,8 @@ by delegationInterface {
 /**
  * 일반적인 방식 의 MutableList interface 구현체
  * 모든 메소드를 구현해야한다.
-*/
-class NewList<T>(override val size: Int, init: (index: Int) -> T): MutableList<T> {
+ */
+class NewList<T>(override val size: Int, init: (index: Int) -> T) : MutableList<T> {
     private val list = ArrayList<T>(size)
 
     init {

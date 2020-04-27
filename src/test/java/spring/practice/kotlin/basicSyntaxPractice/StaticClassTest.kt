@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 /**
  * Created by kimchanjung on 2020-04-24 5:23 오후
  */
-internal class StaticClassTest{
+internal class StaticClassTest {
 
     @Test
     fun 오브젝트가_정상적으로_선언된다() {

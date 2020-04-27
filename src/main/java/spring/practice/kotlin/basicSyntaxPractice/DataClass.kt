@@ -16,8 +16,8 @@ import javax.xml.crypto.Data
  * 그래서 여러가지 고려해야할 지점 들이 생김....
  */
 
-data class DataClass(val id:Long, val name:String ) {
-    lateinit var address:String
+data class DataClass(val id: Long, val name: String) {
+    lateinit var address: String
         private set
 
     companion object {
@@ -26,12 +26,12 @@ data class DataClass(val id:Long, val name:String ) {
                 name = convertName(dto.name))
 
         fun fromEntity(entity: Entity): DataClass {
-            val instance = DataClass(entity.id, entity.name +"님")
+            val instance = DataClass(entity.id, entity.name + "님")
             instance.address = "서울"
             return instance
         }
 
-        private fun convertName(name:String) = name + "님"
+        private fun convertName(name: String) = name + "님"
 
     }
 

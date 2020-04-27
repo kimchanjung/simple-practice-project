@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 /**
  * Created by kimchanjung on 2020-04-25 4:14 오후
  */
-internal class DataClassTest{
+internal class DataClassTest {
 
     @Test
     fun 데어터클래스가_정상적으로_선언된다() {

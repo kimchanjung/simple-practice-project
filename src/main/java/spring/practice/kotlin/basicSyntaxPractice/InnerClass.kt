@@ -9,7 +9,7 @@ package spring.practice.kotlin.basicSyntaxPractice
 class OuterClass {
     val outerName = "아우터네임"
 
-    companion object{
+    companion object {
         val staticOuterName = "정적아우터네임"
     }
 

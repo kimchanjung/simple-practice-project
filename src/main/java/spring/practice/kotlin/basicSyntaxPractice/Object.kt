@@ -30,6 +30,7 @@ class StaticFactoryMethodClass private constructor() {
          * 이렇게 일반 클래스에 특정 프로퍼티만 static으로 하는 경우 아래와 같이 사용한다.
          */
         const val address = "서울"
+
         /**
          * @JvmStatic JAVA에서 호출 시 StaticFactoryMethodClass.Companion.of
          * -> StaticFactoryMethodClass.of 호출 되로록 해준다
@@ -42,7 +43,7 @@ class StaticFactoryMethodClass private constructor() {
             return instance
         }
 
-        fun ofNew(name: String, age: Int) = of(name+"" , age)
+        fun ofNew(name: String, age: Int) = of(name + "", age)
     }
 
     fun getNameWithEnglishName() = "$name (kimchanjung)"

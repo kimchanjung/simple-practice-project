@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 /**
  * Created by kimchanjung on 2020-04-23 4:10 오후
  */
-internal class ImplementInterfaceImplTest{
+internal class ImplementInterfaceImplTest {
 
     @Test
     fun 인터페이스가_정상적으로_구현된다() {
