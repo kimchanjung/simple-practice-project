@@ -10,7 +10,7 @@ internal class ExpressionPracticeTest {
 
 
     @Test
-    fun 변수의_값_선언에_IF_가_정상적으로_반영된() {
+    fun 변수의_값_선언에_IF_가_정상적으로_반영된다() {
         // Given
         val msgType = 1
 
