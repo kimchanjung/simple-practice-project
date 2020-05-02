@@ -43,7 +43,7 @@ class StaticFactoryMethodClass private constructor() {
             return instance
         }
 
-        fun ofNew(name: String, age: Int) = of(name + "", age)
+        fun ofNew(name: String, age: Int) = of(name + "님", age)
     }
 
     fun getNameWithEnglishName() = "$name (kimchanjung)"

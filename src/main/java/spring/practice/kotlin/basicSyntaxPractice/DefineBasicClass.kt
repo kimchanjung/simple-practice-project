@@ -35,13 +35,14 @@ class SimpleClass(val name: String, var address: String, var age: Int = 41)
 /**
  * 클래스 선언
  */
-class BasicConstructor(_name: String, _address: String, age: Int) {
-    var name: String = _name // 프로퍼티선언과 동시에 생성자 파라메터로 값 설정을 동시
+class BasicConstructor(name: String, address: String, age: Int) {
+    var name: String = name // 프로퍼티선언과 동시에 생성자 파라메터로 값 설정을 동시
 
     var address: String
         get() {
             return "$field 특별시"
         }
+
 
     var age: Int
 
@@ -57,7 +58,7 @@ class BasicConstructor(_name: String, _address: String, age: Int) {
      * }
      */
     init {
-        address = _address
+        this.address = address
         this.age = age
     }
 }
@@ -90,20 +91,20 @@ class OverLoadingConstructor(name: String) {
  */
 class OverLoadingConstructorWithoutInit {
     var name: String = ""
-    var address: String = ""
+    var address: String
     var age: Int = 0
 
+    // constructor(name: String, address: String, age: Int)  먼저 호출 된 수 수행 된다.
+    constructor(name: String) : this(name, "서울", 20) {
+        println("OverLoadingConstructorWithoutInit - constructor 1")
+        this.name = name
+    }
 
     constructor(name: String, address: String, age: Int) {
-        println("OverLoadingConstructorWithoutInit - constructor 1")
+        println("OverLoadingConstructorWithoutInit - constructor 2")
         this.name = name
         this.address = address
         this.age = age
-    }
-
-    constructor(name: String) {
-        println("OverLoadingConstructorWithoutInit - constructor 2")
-        this.name = name
     }
 
 }
@@ -137,7 +138,11 @@ class PrivateDefaultConstructorForJava private constructor() {
     lateinit var name: String
 
     companion object {
+
         const val address = "서울"
+
+        @JvmField
+        val age = 20
 
         @JvmStatic
         fun of(name: String): PrivateDefaultConstructorForJava {
@@ -161,12 +166,11 @@ class BasicPatternClass private constructor() {
 
     var address: String = ""
         get() = if (field.contains("특별시")) field else "$field 특별시"
-        set(address: String) {
+        set(address) {
             field = "$address 특별시"
         }
 
     private var age: Int = 0
-
 
     companion object {
         @JvmStatic

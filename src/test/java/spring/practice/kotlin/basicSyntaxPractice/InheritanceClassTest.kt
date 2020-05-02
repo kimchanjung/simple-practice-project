@@ -12,7 +12,8 @@ internal class InheritanceClassTest {
     fun 상속이_정상적으로_이루어진다() {
         // Given
         val parent = Parent("김찬정", 10)
-        val child = Child("김찬정", 20, "부")
+        val child = Child("김찬정", 20, "부산")
+        val child2 = Child2("김찬정", 30, "부산")
 
         // Then
         assertEquals(10, parent.age)
@@ -20,5 +21,6 @@ internal class InheritanceClassTest {
         assertTrue(child.isAdultParentMethod())
         assertEquals("kim", parent.getNameInEnglish())
         assertEquals("child kim", child.getNameInEnglish())
+        assertEquals(30, child2.age)
     }
 }

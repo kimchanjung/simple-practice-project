@@ -44,3 +44,11 @@ class Child(name: String, age: Int, address: String) : Parent(name, age) {
         return "child kim"
     }
 }
+
+class Child2 : Parent {
+    var address: String
+
+    constructor(name: String, age: Int, address: String) : super(name, age) {
+        this.address = address
+    }
+}

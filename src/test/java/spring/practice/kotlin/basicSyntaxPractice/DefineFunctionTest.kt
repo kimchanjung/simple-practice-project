@@ -12,7 +12,7 @@ class DefineFunctionTest {
 
 
     // 중위 함수 - Int 타입에 적용한다, 자기 자신 값과 파라메터를 합산
-    private infix fun Int.infixFunc(value: Int):Int {
+    private infix fun Int.infixFunc(value: Int): Int {
         return this + value
     }
 
@@ -23,16 +23,22 @@ class DefineFunctionTest {
     @Test
     fun 함수가_정상적으로_선언된다() {
         // Given
-        fun simpleFunc(name: String = "김찬정", age: Int = 10): String = if (age > 10) name else "어린이"
+        fun basicFunc(name: String): Int {
+            return name.toInt()
+        }
+
+        fun simpleFunc(name: String = "김찬정", age: Int = 10) = if (age > 10) name else "어린이"
 
         // When
-        val result = simpleFunc()
+        val result = basicFunc("11")
+        val result1 = simpleFunc()
         val result2 = simpleFunc("찬정", 20)
         val result3 = simpleFunc(age = 20, name = "찬정")
         val result4 = simpleFunc(age = 20)
 
         // Then
-        assertEquals("어린이", result)
+        assertEquals(11, result)
+        assertEquals("어린이", result1)
         assertEquals("찬정", result2)
         assertEquals("찬정", result3)
         assertEquals("김찬정", result4)
@@ -71,17 +77,24 @@ class DefineFunctionTest {
     fun 확장함수가_정상적으로_선언된다() {
 
         // Given
+        val arrayOf = arrayOf(1, 2, 3)
+
+        fun <T> Array<T>.length(): Int {
+            return 1
+        }
+
         fun <T> Array<T>.addMethod(index1: Int, index2: Int): Int {
             return 1
         }
 
-        val arrayOf = arrayOf(1, 2, 3)
 
         // When
         val addMethod = arrayOf.addMethod(1, 3)
+        val length = arrayOf.length()
 
         // Then
         assertEquals(1, addMethod)
+        assertEquals(1, length)
     }
 
     /**
@@ -89,7 +102,7 @@ class DefineFunctionTest {
      */
     @Test
     fun 중위함수가_정상적으로_선언된다() {
-        println(1 infixFunc 2)
+        println(3 * 2 infixFunc 2)
         println("문" infixFunc2 2)
         println(1.infixFunc(2))
         println("문".infixFunc2(2))

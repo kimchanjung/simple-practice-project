@@ -10,7 +10,7 @@ enum class EnumClass(var number: Int, var desc: String) {
     COMPLETE_PICKUP(3, "픽업완료"),
     COMPLETE_DELIVERY(4, "전달완료");
 
-    fun getStatus() = "$name($number)"
+    fun getStatus() = "$desc($number)"
 }
 
 

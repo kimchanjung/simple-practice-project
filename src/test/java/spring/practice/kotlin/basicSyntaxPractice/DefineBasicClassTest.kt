@@ -51,9 +51,11 @@ internal class DefineBasicClassTest {
 
         // Then
         assertEquals("서울", PrivateDefaultConstructor.address)
+        assertEquals(20, PrivateDefaultConstructorForJava.age)
         assertEquals("김찬정", privateDefaultConstructor.name)
         assertEquals("김찬정", of.name)
         assertEquals("촨", ofNew.name)
+
     }
 
     @Test

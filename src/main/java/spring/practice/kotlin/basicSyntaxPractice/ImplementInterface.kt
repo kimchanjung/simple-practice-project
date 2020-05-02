@@ -5,14 +5,15 @@ package spring.practice.kotlin.basicSyntaxPractice
  */
 interface ImplementInterface {
     val number: Int
+    val name: String
     fun getNameInEnglish(): String
     fun isAdult(): Boolean
 }
 
 class ImplementInterfaceImpl(private var age: Int) : ImplementInterface {
-
     override val number: Int
         get() = 1
+    override val name: String = "김찬정"
 
     override fun getNameInEnglish(): String {
         return "kim"

@@ -38,7 +38,7 @@ internal class ExpressionPracticeTest {
     fun WHEN_선언이_정상적으로_동작한다() {
         // Given
         val inputType = 2
-        val inputString = "2"
+        val msgType = "2"
         fun checkType(type: Int) = if (type == 1) 1 else -1
 
         // When
@@ -59,8 +59,8 @@ internal class ExpressionPracticeTest {
         }
 
         when {
-            inputString == "4" -> println("4 OK")
-            inputString.length == 1 -> println("LENGTH IS 1")
+            inputType == 4 -> println("4 OK")
+            msgType == "2" -> println("msgType = 2")
             //  else -> println("2 NOT OK")
         }
 
@@ -104,7 +104,7 @@ internal class ExpressionPracticeTest {
     @Test
     fun WHILE_문이_정상적으로_동작한다() {
         // Given
-        val item = Array(5) { v -> v+1 }
+        val item = Array(5) { v -> v + 1 }
         var index = 0
 
         // When
