@@ -36,8 +36,8 @@ class ArrayTest {
 
         initArr.forEach { println(it) }
         initArr.forEachIndexed { index, v -> println("$index) $v") }
-        initWithIncrement.forEach {  println("initWithIncrement) $it") }
-        initWithIncrementByStep.forEach {  println("initWithIncrementByStep) $it") }
+        initWithIncrement.forEach { println("initWithIncrement) $it") }
+        initWithIncrementByStep.forEach { println("initWithIncrementByStep) $it") }
 
         Assertions.assertEquals(3, initIntArr[2])
         Assertions.assertEquals(2, arr[1])
