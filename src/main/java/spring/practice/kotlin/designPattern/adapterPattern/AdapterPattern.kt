@@ -1,17 +1,28 @@
-package spring.practice.kotlin.designPattern
+package spring.practice.kotlin.designPattern.adapterPattern
 
 /**
  * Created by kimchanjung on 2020-05-05 1:22 오후
  * [Apdater Pattern]
  * 사용자는 일관성있는 인터페이스를 사용하여 변경이 필요 없고
  * 인터페이스의 구현체는 각각 세부로직은 다르지만 인터페이스에 맞게 구현하여
- * 사용자는 약간식 세구 구현이 다른 클래스를 일관성있게 사용한다.
+ * 사용자는 약간식 세부 구현이 다른 클래스를 일관성있게 사용한다.
  * 만능 리모컨을 생각하면 쉬울 수 있다.
  * 삼성 TV 와 LG TV의 리모컨은 대부분 서로 비슷하지만 약간 다르다
  * 사용자는 삼성 TV 와 LG TV 사용할때 각각의 리모컨을 사용해야하지만
  * 만능 리모컨은 각각 TV에 맞게 동작 하도록 세부로직은 다르지만 사용자에게
  * 제공하는 리모컨 기능은 동일하여 사용자가 개별 제조사의 TV 리모컨을 따로 사용할 필요없이
  * 만능 리모컨만 사용하면 된다. TV 종류가 추가 되어도 마찬가지
+ *
+ * 클래스 방식
+ * 장점 - 어댑터(Adapter)를 전체를 다시 구현할 필요가 없다.(빠르다)
+ * 단점 - 상속(Generalzation)을 활용하기때문에 유연하지 못하다.
+ *
+ * 오브젝트 방식
+ * 장점 - 구성(Composition)을 사용하기 때문에 더 뛰어나다.(유연하다)
+ * 단점 - 어댑터(Adapter)클래스의 대부분의 코드를 구현해야하기때문에 효율적이지 못하다
+
+
+
  */
 
 // 기존 로그인 서비스
@@ -82,6 +93,7 @@ class ClientService2 {
     }
 
     private fun redirect(url: String) {
+        println(url)
         // redirect logic
     }
 }
@@ -146,7 +158,6 @@ class ClientService(private val loginAdapter: LoginAdapter) {
             .goLoginPage()
             .requestLogin(id, pw)
             .redirect(redirectUrl)
-
 }
 
 

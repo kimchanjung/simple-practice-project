@@ -1,4 +1,4 @@
-package spring.practice.kotlin.designPattern
+package spring.practice.kotlin.designPattern.observerPattern
 
 /**
  * Created by kimchanjung on 2020-05-05 9:35 오후
@@ -8,6 +8,11 @@ package spring.practice.kotlin.designPattern
  * javascript onClick 같은 이벤트 리스너를 사용한다거나
  * 크게는 aws sns/sqs 같은 것들도 발생/구독 모델이다.
  *
+ * 장점
+ *  - 객체간 겹합도가 느슨
+ *
+ * 단점
+ *  - 옵저버의 실행 순서를 알 수 없다.
  */
 
 // 발행 인터페이스를 정의한다.

@@ -1,8 +1,9 @@
-package spring.practice.kotlin.designPattern
+package spring.practice.kotlin.designPattern.singletonPattern
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import spring.practice.kotlin.basicSyntaxPractice.SimpleClass
+import spring.practice.kotlin.designPattern.singletonPattern.LikeJavaSingletonPattern
+import spring.practice.kotlin.designPattern.singletonPattern.SingletonPattern
 
 /**
  * Created by kimchanjung on 2020-05-02 5:25 오후

@@ -1,10 +1,20 @@
-package spring.practice.kotlin.designPattern
+package spring.practice.kotlin.designPattern.strategyPattern
 
 /**
  * Created by kimchanjung on 2020-05-06 12:33 오후
  * https://sirupe.github.io/strategy-pattern/
  * https://gmlwjd9405.github.io/2018/07/06/strategy-pattern.html
  * [Strategy Pattern]
+ * 알고리즘, 로직을 따로 정의 하여 필요에 의해 사용 또는 교체 할 수 있는 패턴
+ *
+ * 장점
+ *  - 로직이나 알고리즘 변경시 해당 코드를 직접 변경하지 않고 이미 정의된 알고리즘을 교체하여 사용할 수 있다.
+ *  - 분기로직 제거
+ *
+ * 단점
+ *  - 객체의 수가 증가
+ *  - 코드 복잡도 증가
+ *  - 구현된 객체 사이의 결합도 증가
  *
  */
 

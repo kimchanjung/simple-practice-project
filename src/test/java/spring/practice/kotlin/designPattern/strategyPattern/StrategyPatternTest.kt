@@ -1,8 +1,9 @@
-package spring.practice.kotlin.designPattern
+package spring.practice.kotlin.designPattern.strategyPattern
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import spring.practice.kotlin.designPattern.strategyPattern.*
 import kotlin.jvm.JvmStatic as JvmStatic
 
 /**
@@ -50,6 +51,6 @@ internal class StrategyPatternTest {
         assertEquals("자전거", fullTimeRider.deliveryBy())
         assertEquals("지하철", fullTimeRider.goToWorkBy())
         assertEquals("자전거", connectRider.deliveryBy())
-        assertEquals("지하철 ", connectRider.goToWorkBy())
+        assertEquals("지하철", connectRider.goToWorkBy())
     }
 }
