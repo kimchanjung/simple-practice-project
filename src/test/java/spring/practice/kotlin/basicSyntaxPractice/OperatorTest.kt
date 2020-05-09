@@ -91,11 +91,13 @@ class OperatorTest {
         // Given
         val name: String? = null // null 이 가능한 타입
         val address: String? = "부산광역시"
+        val newName = name ?: "김찬정" // name 이 null 이면 김찬정 값을 대입 아니면 name 값 대입
 
         //Then
+        println(newName)
         println(name?.length)
         println(name?.substring(1)?.length)
-        println(name?.length ?: 0)  // name 의 length 가 null 이면 0을 출력
+        println(name?.length ?: 0)  // name 의 length 가 null 이면 0을 출력 아니면 length 출력
         println(address?.length)
         println(address?.substring(2)?.length)
     }
