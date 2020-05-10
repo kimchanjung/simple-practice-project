@@ -26,4 +26,5 @@ fun sum2(a: Int, b: Int) = a + b
 /**
  * 코틀린 함수 선언 방식을 람다식으로 표현
  */
-val sum2Lambda = { a: Int, b: Int -> a + b }
+val sum2Lambda = { a: Int, b: Int ->
+    a + b }
