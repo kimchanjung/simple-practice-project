@@ -34,7 +34,8 @@ class PartTimeRider(var center: String) : Rider {
 
 
 class RiderFactory {
-    private val riderClasses = mapOf("fulltime" to FullTimeRider::class, "parttime" to PartTimeRider::class)
+    private val riderClasses =
+            mapOf("fulltime" to FullTimeRider::class, "parttime" to PartTimeRider::class)
     private val riderMap = mutableMapOf<String, Rider>()
 
     fun getRider(center: String, type: String): Rider {
