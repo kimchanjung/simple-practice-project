@@ -21,6 +21,6 @@ internal class VisitorPatternTest {
         val partTimeRiderTask = totalRiderTask.doTask(partTimeRider)
         // Then
         assertEquals("오토바이배달오토바이를운전한다오토바이를수리한다", fullTimeRiderTask)
-        assertEquals("자전거배달자전거를운전한다자전를수리한다", partTimeRiderTask)
+        assertEquals("자전거배달자전거를운전한다자전거를수리한다", partTimeRiderTask)
     }
 }
