@@ -11,10 +11,10 @@ internal class ChainOfResponsibilityPatternTest {
     @Test
     fun 책연쇠패턴이_정상적으로_동작한다() {
         // Given
-        val rider = FullTimeRider(PartTimeRider(ConnectRider(null)))
+        val riderService = RiderService()
 
         // When
-        val delivery = rider.delivery("분식")
+        val delivery = riderService.delivery("분식")
 
         // Then
         assertEquals("분식배달", delivery)
