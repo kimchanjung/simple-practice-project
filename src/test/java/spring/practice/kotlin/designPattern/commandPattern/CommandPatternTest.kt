@@ -23,8 +23,8 @@ internal class CommandPatternTest {
                 .changeDeliveryCommand(motorCycleCommand)
                 .delivery()
         // Then
-        assertEquals("오토바이출발", delivery)
+        assertEquals("오토바이시동오토바이출발", delivery)
         assertEquals("자전거출발", delivery1)
-        assertEquals("오토바이출발", delivery2)
+        assertEquals("오토바이시동오토바이출발", delivery2)
     }
 }
