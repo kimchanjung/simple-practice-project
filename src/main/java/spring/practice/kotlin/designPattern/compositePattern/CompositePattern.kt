@@ -25,16 +25,16 @@ class FullTimeRider : Rider {
 }
 
 class PartTimeRider : Rider {
-    override fun delivery(vehicle: String) = "시간제"+ vehicle + "배달"
+    override fun delivery(vehicle: String) = "시간제" + vehicle + "배달"
 }
 
 class ConnectRider : Rider {
-    override fun delivery(vehicle: String) = "커넥트"+ vehicle + "배달"
+    override fun delivery(vehicle: String) = "커넥트" + vehicle + "배달"
 }
 
 
-class DeliveryCenter : Rider {
-    private val riders = mutableListOf<Rider>()
+class AllTypeRider : Rider {
+    private val riders = mutableListOf(FullTimeRider(), PartTimeRider(), ConnectRider())
 
     override fun delivery(vehicle: String): String {
         return riders.joinToString(separator = "") { it.delivery(vehicle) }
@@ -43,4 +43,9 @@ class DeliveryCenter : Rider {
     fun add(rider: Rider) = riders.add(rider)
 
     fun remove(rider: Rider) = riders.remove(rider)
+}
+
+class RiderService(private val allTypeRider: AllTypeRider) {
+    fun deliveryAllRiders(vehicle: String) =
+            allTypeRider.delivery("오토바")
 }

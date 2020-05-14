@@ -29,13 +29,13 @@ internal class DecoratorPatternTest {
         assertEquals("음식배달|오토바이수리", riderWithRepairVehicle.working())
         assertEquals("음식배달|라이더관리업무", riderWithManagement.working())
         assertEquals("음식배달|오토바이수리|라이더관리업무", riderWithRepairVehicleManagement.working())
-        assertEquals("정규직라이더|수리기사|관리자", riderWithRepairVehicleManagement.displayJobType())
+        assertEquals("정규직라이더|수리기사|관리자", riderWithRepairVehicleManagement.showJobType())
 
         assertEquals("java", developer.working())
         assertEquals("java|reactjs", developerWithReactJs.working())
         assertEquals("java|springboot", developerWithSpringBoot.working())
         assertEquals("java|reactjs|springboot", developerWithReactSpringBoot.working())
         assertEquals("java|reactjs|springboot", developerWithReactSpringBoot.working())
-        assertEquals("개발자|프론트엔드|백엔드", developerWithReactSpringBoot.displayJobType())
+        assertEquals("개발자|프론트엔드|백엔드", developerWithReactSpringBoot.showJobType())
     }
 }

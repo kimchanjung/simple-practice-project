@@ -12,7 +12,7 @@ internal class FacadePatternTest {
     fun 퍼사드패턴이_정상적으로_동작한다() {
         // Given
         val image = Image("라이더이미지", "/local/image/rider-profile/라이더이미지.jpg")
-        val newRiderService = NewRiderService()
+        val newRiderService = RiderService()
         // When
 
         val uploadRiderProfile = newRiderService.uploadRiderProfile(image)

@@ -37,11 +37,18 @@ package spring.practice.kotlin.designPattern.facadePattern
  *      }
  * }
  *
+ * 장점
+ * - 클라이언트와 서브시스템(라이브러리 및 클래스)간의 결합도가 줄어든다.
+ * - 클라이언트는 서브시스템(라이브러리 및 클래스)의 다루기위한 정보와 행위가 줄어들거나 몰라도 된다.
+ *
+ * 단점
+ * - Client가 서브시스템 내부의 클래스를 직접 사용하는 것을 막을 수 없다. Namespace를 선언하는 것이 대한이 될 수 있다.
+ *
  */
 
 class Image(var name: String, var fileDir: String?)
 
-class S3 {
+class AwsS3 {
     lateinit var name: String
     lateinit var location: String
     fun upload() = true
@@ -52,8 +59,8 @@ class S3 {
  * 여러 곳에서 사용하고 있었을 것이다.
  */
 
-class RiderService {
-    private val s3 = S3()
+class OldRiderService {
+    private val s3 = AwsS3()
 
     fun createRider() = "라이더생성"
     fun uploadRiderProfile(image: Image) {
@@ -66,8 +73,8 @@ class RiderService {
     }
 }
 
-class DeliveryService {
-    private val s3 = S3()
+class OldDeliveryService {
+    private val s3 = AwsS3()
 
     fun createDelivery() = "배달생성"
     fun uploadFoodImage(image: Image) {
@@ -85,7 +92,7 @@ class DeliveryService {
  * upload 까지 일련의 로직을 하나의 메소드로 묶어 제공하는 형태로 구성한다.
  */
 class AwsS3UploadService {
-    private var s3 = S3()
+    private var s3 = AwsS3()
     fun upload(image: Image): Boolean {
         s3.name = image.name
         s3.location = image.fileDir
@@ -99,7 +106,7 @@ class AwsS3UploadService {
 /**
  * 퍼사드 패턴으로 구성된 AwsS3UploadService를 간편하게 사용한다.
  */
-class NewRiderService {
+class RiderService {
     private val awsS3UploadService = AwsS3UploadService()
     fun createRider() = "라이더생성"
     fun uploadRiderProfile(image: Image) = awsS3UploadService.upload(image)

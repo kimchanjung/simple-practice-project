@@ -7,8 +7,7 @@ package spring.practice.kotlin.designPattern.decoratorPattern
  * https://namget.tistory.com/entry/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4-%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%EC%85%98-%ED%8C%A8%ED%84%B4
  * https://gmlwjd9405.github.io/2018/07/09/decorator-pattern.html
  *
- * 데코레이터 패턴은 특정 클래스의 기본 기능에 특정 기능을 덧 붙이고 싶을 때 기존 클래스를 수정 하지 않고
- * 패턴을 통하여 추가기능을 덧 붙이고 싶을 때 사용한다.
+ * 데코레이터 패턴은 특정 클래스의 기본 기능에 추가 기능을 기존 클래스를 수정 하지 않고 패턴을 통하여 덧 붙이고 싶을 때 사용한다.
  *
  * 단점
  *  - 자잘하나 클래스들이 많이 필요하게 된다.
@@ -57,8 +56,8 @@ class OldRiderWithRepairVehicleManagement : OldRider() {
 /**
  * 기본 기능 즉 "일한다" 정의한 추상 클래스를 만든다
  */
-abstract class Employee(var jobType:String) {
-    open fun displayJobType() = jobType
+abstract class Employee(private var jobType:String) {
+    open fun showJobType() = jobType
     abstract fun working(): String
 }
 
@@ -82,7 +81,7 @@ class Developer(jobType: String) : Employee(jobType) {
  * 업무를 추가할 수 있는 데코레이터 추상 클래스를 만든다.
  */
 abstract class CompanyWorkDecorator : Employee("") {
-    abstract override fun displayJobType(): String
+    abstract override fun showJobType(): String
 }
 
 /**
@@ -90,21 +89,21 @@ abstract class CompanyWorkDecorator : Employee("") {
  * 이 클래스들은 나중에 필요한 기능을 조합할때 덧붙여 조합하여 최종 기능을 만드는데 활용된다.
  */
 class RiderWithRepairVehicle(private var rider: Employee) : CompanyWorkDecorator() {
-    override fun displayJobType() = rider.displayJobType() + "|수리기사"
+    override fun showJobType() = rider.showJobType() + "|수리기사"
     override fun working() = rider.working() + "|오토바이수리"
 }
 
 class RiderWithManagement(private val rider: Employee) : CompanyWorkDecorator() {
-    override fun displayJobType() = rider.displayJobType() + "|관리자"
+    override fun showJobType() = rider.showJobType() + "|관리자"
     override fun working() = rider.working() + "|라이더관리업무"
 }
 
 class DeveloperWithReactJs(private var rider: Employee) : CompanyWorkDecorator() {
-    override fun displayJobType() = rider.displayJobType() + "|프론트엔드"
+    override fun showJobType() = rider.showJobType() + "|프론트엔드"
     override fun working() = rider.working() + "|reactjs"
 }
 
 class DeveloperWithSpringBoot(private val rider: Employee) : CompanyWorkDecorator() {
-    override fun displayJobType() = rider.displayJobType() + "|백엔드"
+    override fun showJobType() = rider.showJobType() + "|백엔드"
     override fun working() = rider.working() + "|springboot"
 }
