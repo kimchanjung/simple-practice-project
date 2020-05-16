@@ -4,7 +4,7 @@ package spring.practice.kotlin.designPattern.statePattern
  * Created by kimchanjung on 2020-05-12 2:20 오후
  * [State Pattern]
  * 상태 패턴
- * 객체가 직접 상태에 따른 행위를 직접 구현하지 않고 상태와 행위를 구현한 별개의 상태객체에게 위임하는 패턴
+ * 객체가 상태에 따른 행위를 직접 구현하지 않고 상태와 행위를 구현한 별개의 상태객체에게 위임하는 패턴
  *
  * 장점
  *  - 상태 변경에 따른 행위 로직을 직접 구현 하지 않아도 됨으로써 확장에 유리하다.

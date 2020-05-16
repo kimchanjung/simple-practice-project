@@ -56,7 +56,7 @@ class OldRiderWithRepairVehicleManagement : OldRider() {
 /**
  * 기본 기능 즉 "일한다" 정의한 추상 클래스를 만든다
  */
-abstract class Employee(private var jobType:String) {
+abstract class Employee(private var jobType: String = "") {
     open fun showJobType() = jobType
     abstract fun working(): String
 }
@@ -80,7 +80,7 @@ class Developer(jobType: String) : Employee(jobType) {
 /**
  * 업무를 추가할 수 있는 데코레이터 추상 클래스를 만든다.
  */
-abstract class CompanyWorkDecorator : Employee("") {
+abstract class CompanyWorkDecorator : Employee() {
     abstract override fun showJobType(): String
 }
 

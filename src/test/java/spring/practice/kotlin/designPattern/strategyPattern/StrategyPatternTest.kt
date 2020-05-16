@@ -27,30 +27,30 @@ internal class StrategyPatternTest {
     @Test
     fun 전략주입이_정상적으로_동작한다() {
         // Given // When
-        val fullTimeRider = FullTimeRider("김찬정", bySubwayStrategy, motorCycleStrategy)
-        val partTimeRider = PartTimeRider("홍길동", byCarStrategy, bikeStrategy)
+        val fullTimeRider = Rider("김찬정", bySubwayStrategy, motorCycleStrategy)
+        val partTimeRider = Rider("홍길동", byCarStrategy, bikeStrategy)
 
         // Then
-        assertEquals("오토바이", fullTimeRider.deliveryBy())
-        assertEquals("지하철", fullTimeRider.goToWorkBy())
-        assertEquals("자전거", partTimeRider.deliveryBy())
-        assertEquals("자가용", partTimeRider.goToWorkBy())
+        assertEquals("오토바이", fullTimeRider.delivery())
+        assertEquals("지하철", fullTimeRider.goToWork())
+        assertEquals("자전거", partTimeRider.delivery())
+        assertEquals("자가용", partTimeRider.goToWork())
     }
 
     @Test
     fun 전략변경이_정상적으로_동작한다() {
         // Given
-        val fullTimeRider = FullTimeRider("김찬정", bySubwayStrategy, motorCycleStrategy)
-        val connectRider = ConnectRider("이순신", dontGoToWorkStrategy, bikeStrategy)
+        val fullTimeRider = Rider("김찬정", bySubwayStrategy, motorCycleStrategy)
+        val connectRider = Rider("이순신", dontGoToWorkStrategy, bikeStrategy)
 
         // When
         fullTimeRider.changeDeliveryStrategy(bikeStrategy)
         connectRider.changeGoToWorkStrategy(bySubwayStrategy)
 
         // Then
-        assertEquals("자전거", fullTimeRider.deliveryBy())
-        assertEquals("지하철", fullTimeRider.goToWorkBy())
-        assertEquals("자전거", connectRider.deliveryBy())
-        assertEquals("지하철", connectRider.goToWorkBy())
+        assertEquals("자전거", fullTimeRider.delivery())
+        assertEquals("지하철", fullTimeRider.goToWork())
+        assertEquals("자전거", connectRider.delivery())
+        assertEquals("지하철", connectRider.goToWork())
     }
 }

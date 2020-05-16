@@ -15,20 +15,21 @@ import kotlin.reflect.full.primaryConstructor
  *  - 많은 객체를 만들때 메모리를 줄일수 있다.
  *
  * 단점
- *  - 특정 인스턴스를 다르게 처리하는 것을 불가능 함
+ *  - 특정 인스턴스를 다르게 처리하는 것은 불가능 함
  *
  *
  */
 
 interface Rider {
+    var center: String
     fun delivery(): String
 }
 
-class FullTimeRider(var center: String) : Rider {
+class FullTimeRider(override var center: String) : Rider {
     override fun delivery() = "$center 오토바이배달"
 }
 
-class PartTimeRider(var center: String) : Rider {
+class PartTimeRider(override var center: String) : Rider {
     override fun delivery() = "$center 자전거배달"
 }
 
@@ -38,13 +39,12 @@ class RiderFactory {
             mapOf("fulltime" to FullTimeRider::class, "parttime" to PartTimeRider::class)
     private val riderMap = mutableMapOf<String, Rider>()
 
-    fun getRider(center: String, type: String): Rider {
-        val riderClass = riderClasses[type]!!.primaryConstructor
-        return riderMap.computeIfAbsent(center + type) {
-            println("$center $type 라이더 객체를 새로 생성")
-            riderClass!!.call(center)
-        }
-    }
+    fun getRider(center: String, type: String) =
+            riderMap.computeIfAbsent(center + type) {
+                println("$center $type 라이더 객체를 새로 생성")
+                riderClasses[type]!!.primaryConstructor!!.call(center)
+            }
+
 }
 
 class RiderService {

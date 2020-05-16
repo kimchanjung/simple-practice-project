@@ -25,6 +25,11 @@ package spring.practice.kotlin.designPattern.visitorPattern
  *    for
  *      라이더.업무()
  *
+ * 장점
+ * - 클래스타입/메소드종류에 관계없이 추상화된 메소드로 일관성 있게 사용함으로써 클래스/메소드 추가나 로직 변경으로 부터 자유롭다.
+ *
+ * 단점
+ * - 관련 클래스들이 늘어남에 따라 구조가 복잡해 진다.
  *
  */
 
@@ -58,6 +63,27 @@ package spring.practice.kotlin.designPattern.visitorPattern
  * }
  */
 
+// 라이더의 개별 행위 즉 배달, 운전, 수리를 업무수행이라는 메소드로 추상황 한다.
+interface RiderTask {
+    fun doTask(rider: Rider): String
+}
+
+// 추상화된 메소드 업무수행을 배달, 운전, 수리 구현체에서 구현한다.
+class DeliveryTask : RiderTask {
+    override fun doTask(rider: Rider) = rider.doTask(this)
+
+}
+
+class DriveVehicleTask : RiderTask {
+    override fun doTask(rider: Rider) = rider.doTask(this)
+
+}
+
+class RepairVehicleTask : RiderTask {
+    override fun doTask(rider: Rider) = rider.doTask(this)
+
+}
+
 // 라이더의 행위들을 정의 한다.
 interface Rider {
     fun doTask(deliveryTask: DeliveryTask): String
@@ -80,26 +106,6 @@ class PartTimeRider : Rider {
     override fun doTask(repairVehicleTask: RepairVehicleTask) = "자전거를수리한다"
 }
 
-// 라이더의 개별 행위 즉 배달, 운전, 수리를 업무수행이라는 메소드로 추상황 한다.
-interface RiderTask {
-    fun doTask(rider: Rider): String
-}
-
-// 추상화된 메소드 업무수행을 배달, 운전, 수리 구현체에서 구현한다.
-class DeliveryTask : RiderTask {
-    override fun doTask(rider: Rider) = rider.doTask(this)
-
-}
-
-class DriveVehicleTask : RiderTask {
-    override fun doTask(rider: Rider) = rider.doTask(this)
-
-}
-
-class RepairVehicleTask : RiderTask {
-    override fun doTask(rider: Rider) = rider.doTask(this)
-
-}
 
 // 배달, 운전, 수리 행위를 리스트 가지고 있다.
 // 업무 수행을 호출할때 라이더 타입을 매개 변수로 하면 해당 라이더의

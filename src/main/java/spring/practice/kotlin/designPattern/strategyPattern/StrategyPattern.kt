@@ -116,7 +116,7 @@ class BikeStrategy : DeliveryStrategy {
  * 출근, 배달의 로직은 각각 전략 클래스의 메소드를 사용하도록 하고
  * 나중에 라이더클래스의 소스코드 수정 없이 전략만 교체 해서 변경하여 사용 할 수 있도록 구성한다.
  */
-abstract class Rider(
+class Rider(
         var name: String,
         private var goToWorkStrategy: GoToWorkStrategy,
         private var deliveryStrategy: DeliveryStrategy) {
@@ -130,38 +130,20 @@ abstract class Rider(
         this.deliveryStrategy = deliveryStrategy
     }
 
-    // 내부로직이 아니라 전략 로직을 사용한다.
-    fun goToWorkBy() = goToWorkStrategy.goToBy()
-    fun deliveryBy() = deliveryStrategy.move()
-    abstract fun getFee(): Int
-}
+    // 로직의 일부를 패턴화한 전략을 사용한다.
+    fun goToWork() {
+        // 아침에 일어난다
+        // 샤워를 하고 옷을 입는다
+        goToWorkStrategy.goToBy() // 출근 시 이동수단 전략을 사용한다.
+        // 내려서 지점 건물 까지 걸어간다.
+    }
 
-
-// 정규직 라이더
-class FullTimeRider(name: String,
-                    goToWorkStrategy: GoToWorkStrategy,
-                    deliveryStrategy: DeliveryStrategy) :
-        Rider(name, goToWorkStrategy, deliveryStrategy) {
-
-    override fun getFee() = 3000
-}
-
-// 파트타임 라이더
-class PartTimeRider(name: String,
-                    goToWorkStrategy: GoToWorkStrategy,
-                    deliveryStrategy: DeliveryStrategy) :
-        Rider(name, goToWorkStrategy, deliveryStrategy) {
-
-    override fun getFee() = 2000
-}
-
-// 배민커넥트 라이더
-class ConnectRider(name: String,
-                   goToWorkStrategy: GoToWorkStrategy,
-                   deliveryStrategy: DeliveryStrategy) :
-        Rider(name, goToWorkStrategy, deliveryStrategy) {
-
-    override fun getFee() = 1000
+    fun delivery() {
+        // 배달을 배차한다
+        // 음식을 픽업한다.
+        deliveryStrategy.move() // 배달시 이동수단 전략을 사용한다.
+        // 고객에게 음식을 전달한다.
+    }
 }
 
 

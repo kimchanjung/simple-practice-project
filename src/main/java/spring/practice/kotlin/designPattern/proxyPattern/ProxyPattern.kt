@@ -7,7 +7,7 @@ package spring.practice.kotlin.designPattern.proxyPattern
  * 실제객체를 대신하는 객체가 로직의 흐름을 제어하여 실제 객체를 조작하는 패턴
  *
  * 장점
- *  - 원래 객체의 기능에 부가적인 작업을 출가 할 때 용이함
+ *  - 원래 객체의 기능에 부가적인 작업을 추가 할 때 용이함
  *  - 메소드 호출이 발생하기 전까지 실제객체가 생성성되지 않는다 (메모리 이점)
  *
  * 단점
@@ -16,21 +16,14 @@ package spring.practice.kotlin.designPattern.proxyPattern
  */
 
 interface Rider {
-    fun delivery()
+    fun delivery(): String
     fun getPersonalInfo(level: Int): String?
 
 }
 
 class FullTimeRider(var name: String) : Rider {
-
-    init {
-        goToWork()
-    }
-
-    private fun goToWork() = println("지점으로 출근")
-    override fun delivery() = println("음식배달")
+    override fun delivery() = "음식배달"
     override fun getPersonalInfo(level: Int) = name
-
 }
 
 
@@ -38,10 +31,9 @@ class ProxyRider(var name: String) : Rider {
 
     private var fullTimeRider: FullTimeRider? = null
 
-    override fun delivery() {
-        fullTimeRider = fullTimeRider ?: FullTimeRider(name)
-        fullTimeRider?.delivery()
-    }
+    override fun delivery() =
+            (fullTimeRider ?: FullTimeRider(name)).delivery()
+
 
     override fun getPersonalInfo(level: Int) = name
 }
@@ -53,15 +45,18 @@ class ProtectedProxyRider(var name: String) : Rider {
 
     private fun getRider(name: String) = fullTimeRider ?: FullTimeRider(name)
 
-    override fun delivery() {
-        getRider(name).delivery()
-    }
+    override fun delivery() = getRider(name).delivery()
 
     override fun getPersonalInfo(level: Int) = if (level > 3)
         getRider(name).getPersonalInfo(level)
     else
         "접근불가"
 
+}
+
+class DeliveryService(private val rider: Rider) {
+    fun delivery() = rider.delivery()
+    fun getRiderInfo() = rider.getPersonalInfo(1)
 }
 
 

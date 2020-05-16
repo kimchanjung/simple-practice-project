@@ -60,3 +60,9 @@ class PartTimeRider(name: String,
     override fun delivery() = "자전거배달"
     override fun repairVehicle() = "자전거수리"
 }
+
+class DeliveryService(private val rider:Rider) {
+    fun delivery() {
+        rider.work()
+    }
+}

@@ -26,23 +26,23 @@ interface Rider {
  * 처리의 전체적인 구성은 인스턴스 생성시 어떻게 다음 객체들을 구성 했느냐에 따라
  * 달라진다.
  */
-class FullTimeRider(var next: Rider?) : Rider {
+class FullTimeRider(var next: Rider? = null) : Rider {
     override fun delivery(foodType: String) =
             if (foodType == "양식") "양식배달" else next!!.delivery(foodType)
 }
 
-class PartTimeRider(var next: Rider?) : Rider {
+class PartTimeRider(var next: Rider? = null) : Rider {
     override fun delivery(foodType: String) =
             if (foodType == "한식") "한식배달" else next!!.delivery(foodType)
 }
 
-class ConnectRider(var next: Rider?) : Rider {
+class ConnectRider(var next: Rider? = null) : Rider {
     override fun delivery(foodType: String) =
             if (foodType == "분식") "분식배달" else next!!.delivery(foodType)
 }
 
 class RiderService {
-    val rider = FullTimeRider(PartTimeRider(ConnectRider(null)))
+    val rider = FullTimeRider(PartTimeRider(ConnectRider()))
     // 분식 배달은 배민커넥트 라이더만 처리가능하고 배민커넥트 라이더를 만날때 까지
     // 정규직 -> 파트타임 -> 배민커넥트 처리 객체가 위임 된다.
     fun delivery(foodType:String) = rider.delivery(foodType)
