@@ -33,8 +33,7 @@ class ConnectRider : Rider {
 }
 
 
-class AllTypeRider : Rider {
-    private val riders = mutableListOf(FullTimeRider(), PartTimeRider(), ConnectRider())
+class AllTypeRider(private val riders: MutableList<Rider>) : Rider {
 
     override fun delivery(vehicle: String): String {
         return riders.joinToString(separator = "") { it.delivery(vehicle) }
@@ -47,5 +46,5 @@ class AllTypeRider : Rider {
 
 class RiderService(private val allTypeRider: AllTypeRider) {
     fun deliveryAllRiders(vehicle: String) =
-            allTypeRider.delivery("오토바")
+            allTypeRider.delivery(vehicle)
 }

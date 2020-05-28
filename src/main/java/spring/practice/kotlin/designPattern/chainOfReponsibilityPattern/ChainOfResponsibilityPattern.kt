@@ -41,9 +41,8 @@ class ConnectRider(var next: Rider? = null) : Rider {
             if (foodType == "분식") "분식배달" else next!!.delivery(foodType)
 }
 
-class RiderService {
-    val rider = FullTimeRider(PartTimeRider(ConnectRider()))
+class RiderService(private val rider: Rider) {
     // 분식 배달은 배민커넥트 라이더만 처리가능하고 배민커넥트 라이더를 만날때 까지
     // 정규직 -> 파트타임 -> 배민커넥트 처리 객체가 위임 된다.
-    fun delivery(foodType:String) = rider.delivery(foodType)
+    fun delivery(foodType: String) = rider.delivery(foodType)
 }

@@ -36,9 +36,9 @@ class CollectionTest {
         val mapOf = mapOf("a" to 1, "b" to 2)
         val emptyMutableMap = mutableMapOf<String, Int>()
 
-        // When
-        mapOf.get("a")
-        mapOf["a"]
-        emptyMutableMap.put("c", 3)
+        // When & Then
+        assertEquals(1, mapOf.get("a"))
+        assertEquals(1, mapOf["a"])
+        assertEquals(null, emptyMutableMap.put("c", 3))
     }
 }

@@ -1,6 +1,7 @@
 package spring.practice.kotlin.basicSyntaxPractice
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 /**
@@ -26,7 +27,7 @@ class ArrayTest {
         arr[0] = 1
         arr.set(1, 2)
 
-        // Then
+
         for (v in arr) {
             println(v)
         }
@@ -39,9 +40,10 @@ class ArrayTest {
         initWithIncrement.forEach { println("initWithIncrement) $it") }
         initWithIncrementByStep.forEach { println("initWithIncrementByStep) $it") }
 
-        Assertions.assertEquals(3, initIntArr[2])
-        Assertions.assertEquals(2, arr[1])
-        Assertions.assertEquals(1, initConstructorArr.get(2))
-        Assertions.assertEquals(10, initConstructorArr.size)
+        // Then
+        assertEquals(3, initIntArr[2])
+        assertEquals(2, arr[1])
+        assertEquals(1, initConstructorArr.get(2))
+        assertEquals(10, initConstructorArr.size)
     }
 }

@@ -11,14 +11,14 @@ internal class CompositePatternTest {
     @Test
     fun 컴포지트패턴이_정상적으로_동작한다() {
         // Given
-        val allTypeRider = AllTypeRider()
+        val riderList = mutableListOf(FullTimeRider(), PartTimeRider(), ConnectRider())
+        val allTypeRider = AllTypeRider(riderList)
         val riderService = RiderService(allTypeRider)
 
         // When
-
         val delivery = riderService.deliveryAllRiders("자전거")
 
         // Then
-        assertEquals("정규직오토바배달시간제오토바배달커넥트오토바배달", delivery)
+        assertEquals("정규직자전거배달시간제자전거배달커넥트자전거배달", delivery)
     }
 }

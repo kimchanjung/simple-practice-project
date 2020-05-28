@@ -131,17 +131,17 @@ class Rider(
     }
 
     // 로직의 일부를 패턴화한 전략을 사용한다.
-    fun goToWork() {
+    fun goToWork(): String {
         // 아침에 일어난다
         // 샤워를 하고 옷을 입는다
-        goToWorkStrategy.goToBy() // 출근 시 이동수단 전략을 사용한다.
+        return goToWorkStrategy.goToBy() // 출근 시 이동수단 전략을 사용한다.
         // 내려서 지점 건물 까지 걸어간다.
     }
 
-    fun delivery() {
+    fun delivery(): String {
         // 배달을 배차한다
         // 음식을 픽업한다.
-        deliveryStrategy.move() // 배달시 이동수단 전략을 사용한다.
+        return deliveryStrategy.move() // 배달시 이동수단 전략을 사용한다.
         // 고객에게 음식을 전달한다.
     }
 }
