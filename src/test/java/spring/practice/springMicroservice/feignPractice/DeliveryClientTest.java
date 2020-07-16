@@ -26,8 +26,6 @@ public class DeliveryClientTest {
     private final static WireMockServer wireMockServer = new WireMockServer();
 
     @Autowired
-    private TestService testService;
-    @Autowired
     private DeliveryClient deliveryClient;
 
     @BeforeAll
@@ -36,7 +34,7 @@ public class DeliveryClientTest {
     }
 
     @Test
-    public void 배달목록을_정상적으로_가져온() {
+    public void 배달목록을_정상적으로_가져온다() {
         //Given
         wireMockServer.stubFor(get(urlPathMatching("/deliveries"))
                 .willReturn(aResponse()

@@ -19,4 +19,6 @@ public class Application {
 //	public Client feignClient() {
 //		return new Client.Default(null, null);
 //	}
+
+
 }
