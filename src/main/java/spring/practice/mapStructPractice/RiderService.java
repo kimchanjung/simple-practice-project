@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RiderService {
 
-    private RiderMapper riderMapper;
+    private final RiderMapper riderMapper;
 
     public RiderService(RiderMapper riderMapper) {
         this.riderMapper = riderMapper;

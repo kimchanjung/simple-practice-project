@@ -13,6 +13,7 @@ import spring.practice.config.BaseMapper;
 public interface RiderMapper {
     RiderMapper INSTANCE = Mappers.getMapper( RiderMapper.class );
 
+    // 컴럼명이 다르면 이렇게 수동으로 매핑할 수 있다.
     @Mapping(source = "name", target = "riderName")
     RiderDto riderToDto(RiderEntity riderEntity);
 }
